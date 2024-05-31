@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %} Ajouter un candidat (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                Ajouter un nouveau CANDIDAT (WTForms)
+            </p>
+            <form action="" method="POST" novalidate>
+                <!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <p>
+                        {{ form.id_candidat.label }}<br>
+                        {{ form.id_candidat(size=32) }}<br>
+                        {% for error in form.id_candidat.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.nom_candidat_wtf.label }}<br>
+                        {{ form.nom_candidat_wtf(size=32) }}<br>
+                        {% for error in form.nom_candidat_wtf.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.prenom.label }}<br>
+                        {{ form.prenom(size=32) }}<br>
+                        {% for error in form.prenom.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.email.label }}<br>
+                        {{ form.email(size=32) }}<br>
+                        {% for error in form.email.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.mot_de_passe.label }}<br>
+                        {{ form.mot_de_passe(size=32) }}<br>
+                        {% for error in form.mot_de_passe.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.telephone.label }}<br>
+                        {{ form.telephone(size=32) }}<br>
+                        {% for error in form.telephone.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.date_de_naissance.label }}<br>
+                        {{ form.date_de_naissance(size=32) }}<br>
+                        {% for error in form.date_de_naissance.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.adresse.label }}<br>
+                        {{ form.adresse(size=32) }}<br>
+                        {% for error in form.adresse.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.titre_profil.label }}<br>
+                        {{ form.titre_profil(size=32) }}<br>
+                        {% for error in form.titre_profil.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.resume.label }}<br>
+                        {{ form.resume(size=32) }}<br>
+                        {% for error in form.resume.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                {{ form.submit(class="btn btn-primary") }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

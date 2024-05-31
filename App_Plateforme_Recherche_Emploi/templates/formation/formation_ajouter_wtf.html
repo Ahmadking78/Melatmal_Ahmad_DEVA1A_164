@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %} Ajouter une formation (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                Ajouter une nouvelle formation (WTForms)
+            </p>
+            <form action="" method="POST" novalidate>
+                <!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <p>
+                        {{ form.ID_Formation.label }}<br>
+                        {{ form.ID_Formation(size=32) }}<br>
+                        {% for error in form.ID_Formation.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.FK_Candidat.label }}<br>
+                        {{ form.FK_Candidat(size=32) }}<br>
+                        {% for error in form.FK_Candidat.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.Etablissement.label }}<br>
+                        {{ form.Etablissement(size=32) }}<br>
+                        {% for error in form.Etablissement.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.Diplome.label }}<br>
+                        {{ form.Diplome(size=32) }}<br>
+                        {% for error in form.Diplome.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.Domaine.label }}<br>
+                        {{ form.Domaine(size=32) }}<br>
+                        {% for error in form.Domaine.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.Date_Debut.label }}<br>
+                        {{ form.Date_Debut(size=32) }}<br>
+                        {% for error in form.Date_Debut.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.Date_Fin.label }}<br>
+                        {{ form.Date_Fin(size=32) }}<br>
+                        {% for error in form.Date_Fin.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form.Description.label }}<br>
+                        {{ form.Description(size=32) }}<br>
+                        {% for error in form.Description.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                {{ form.submit(class="btn btn-primary") }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

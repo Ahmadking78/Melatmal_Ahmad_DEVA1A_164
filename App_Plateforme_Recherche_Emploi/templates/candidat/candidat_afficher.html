@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %} Afficher Candidat {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Candidat
+			</p>
+            <table class="table table-bordered table-sm">
+            {% if data %}
+                <thead>
+                    <tr>
+                        <th class="align-middle">
+                            ID_Candidat
+                        </th>
+                        <th class="align-middle">
+                            Nom
+                        </th>
+                        <th class="align-middle">
+							prenom
+                        </th>
+                        <th class="align-middle">
+							Email
+                        </th>
+						<th class="align-middle">
+							Mot_de_passe
+                        </th>
+						<th class="align-middle">
+							Telephone
+                        </th>
+						<th class="align-middle">
+							Date_de_naissance
+                        </th>
+						<th class="align-middle">
+							Adresse
+                        </th>
+						<th class="align-middle">
+							Titre_profil
+                        </th>
+						<th class="align-middle">
+							Resume
+                        </th>
+                        <th class="align-middle">
+
+                        </th>
+                    </tr>
+                </thead>
+            {% endif %}
+
+            {% for row in data %}
+				<tbody>
+					<tr>
+						<td class="align-middle">
+							{{ row.ID_Candidat }}
+						</td>
+						<td class="align-middle">
+							{{ row.Nom }}
+						</td>
+						<td class="align-middle">
+							{{ row.Prenom }}
+						</td>
+						<td class="align-middle">
+							{{ row.Email }}
+						</td>
+						<td class="align-middle">
+							{{ row.Mot_de_passe }}
+						</td>
+						<td class="align-middle">
+							{{ row.Telephone }}
+						</td>
+						<td class="align-middle">
+							{{ row.Date_de_naissance }}
+						</td>
+						<td class="align-middle">
+							{{ row.Adresse }}
+						</td>
+						<td class="align-middle">
+							{{ row.Titre_profil }}
+						</td>
+						<td class="align-middle">
+							{{ row.Resume }}
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-primary" href="{{ url_for('candidat_ajouter_wtf') }}" role="button">Ajouter</a>
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-warning" href="{{ url_for('candidat_update_wtf', id_candidat_btn_edit_html=row.ID_Candidat) }}" role="button">Edit</a>
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-danger" href="{{ url_for('candidat_delete_wtf', id_candidat_btn_delete_html=row.ID_Candidat) }}" role="button">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+            {% else %}
+				<tbody>
+					<tr>
+						<td>
+							Aucun Candidat.
+						</td>
+						<td>
+							<a class="btn btn-primary" href="{{ url_for('candidat_ajouter_wtf') }}" role="button">Ajouter</a>
+						</td>
+					</tr>
+				</tbody>
+            {% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

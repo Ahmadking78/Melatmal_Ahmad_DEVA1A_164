@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %} Ajouter un competences_candidat (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Ajouter un nouveau competences_candidat (WTForms)
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form.FK_Candidat.label }}<br>
+						{{ form.FK_Candidat(size=32) }}<br>
+						{% for error in form.FK_Candidat.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.FK_Competence.label }}<br>
+						{{ form.FK_Competence(size=32) }}<br>
+						{% for error in form.FK_Competence.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.Niveau.label }}<br>
+						{{ form.Niveau(size=32) }}<br>
+						{% for error in form.Niveau.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+				{{ form.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

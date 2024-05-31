@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %} Editer un employeur (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                Editer un employeur
+            </p>
+            <form action="" method="POST" novalidate>
+                <!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+                {{ form_update.hidden_tag() }}
+                <div class="form-group">
+                    <p>
+                        {{ form_update.ID_Employeur.label }}<br>
+                        {{ form_update.ID_Employeur(disabled=true) }}<br>
+                    </p>
+                    <p>
+                        {{ form_update.Nom_Entreprise.label }}<br>
+                        {{ form_update.Nom_Entreprise(size=32) }}<br>
+                        {% for error in form_update.Nom_Entreprise.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Secteur.label }}<br>
+                        {{ form_update.Secteur(size=32) }}<br>
+                        {% for error in form_update.Secteur.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Email.label }}<br>
+                        {{ form_update.Email(size=32) }}<br>
+                        {% for error in form_update.Email.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Telephone.label }}<br>
+                        {{ form_update.Telephone(size=32) }}<br>
+                        {% for error in form_update.Telephone.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Adresse.label }}<br>
+                        {{ form_update.Adresse(size=32) }}<br>
+                        {% for error in form_update.Adresse.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Description.label }}<br>
+                        {{ form_update.Description(size=32) }}<br>
+                        {% for error in form_update.Description.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                {{ form_update.submit(class="btn btn-primary") }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

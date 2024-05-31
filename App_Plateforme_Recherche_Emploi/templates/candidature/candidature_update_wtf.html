@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %} Editer un candidature (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>Editer un candidature</p>
+            <form action="" method="POST" novalidate>
+                <!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+                {{ form_update.hidden_tag() }}
+                <div class="form-group">
+                    <p>
+                        {{ form_update.ID_Candidature.label }}<br>
+                        {{ form_update.ID_Candidature(size=32) }}<br>
+                        {% for error in form_update.ID_Candidature.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.FK_Candidat.label }}<br>
+                        {{ form_update.FK_Candidat(size=32) }}<br>
+                        {% for error in form_update.FK_Candidat.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.FK_Offre.label }}<br>
+                        {{ form_update.FK_Offre(size=32) }}<br>
+                        {% for error in form_update.FK_Offre.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Date_Candidature.label }}<br>
+                        {{ form_update.Date_Candidature(size=32) }}<br>
+                        {% for error in form_update.Date_Candidature.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Lettre_Motivation.label }}<br>
+                        {{ form_update.Lettre_Motivation(size=32) }}<br>
+                        {% for error in form_update.Lettre_Motivation.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Statut.label }}<br>
+                        {{ form_update.Statut(size=32) }}<br>
+                        {% for error in form_update.Statut.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                {{ form_update.submit(class="btn btn-primary") }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

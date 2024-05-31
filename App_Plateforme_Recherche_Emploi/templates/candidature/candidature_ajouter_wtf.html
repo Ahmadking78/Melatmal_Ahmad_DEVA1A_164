@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %} Ajouter un candidature (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Ajouter un nouveau candidature (WTForms)
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form.ID_Candidature.label }}<br>
+						{{ form.ID_Candidature(size=32) }}<br>
+						{% for error in form.ID_Candidature.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.FK_Candidat.label }}<br>
+						{{ form.FK_Candidat(size=32) }}<br>
+						{% for error in form.FK_Candidat.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.FK_Offre.label }}<br>
+						{{ form.FK_Offre(size=32) }}<br>
+						{% for error in form.FK_Offre.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.Date_Candidature.label }}<br>
+						{{ form.Date_Candidature(size=32) }}<br>
+						{% for error in form.Date_Candidature.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.Lettre_Motivation.label }}<br>
+						{{ form.Lettre_Motivation(size=32) }}<br>
+						{% for error in form.Lettre_Motivation.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.Statut.label }}<br>
+						{{ form.Statut(size=32) }}<br>
+						{% for error in form.Statut.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+				{{ form.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

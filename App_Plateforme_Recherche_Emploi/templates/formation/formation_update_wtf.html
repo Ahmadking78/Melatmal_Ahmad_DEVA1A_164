@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %} Éditer un formation (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                Éditer un formation
+            </p>
+            <form action="" method="POST" novalidate>
+                <!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+                {{ form_update.hidden_tag() }}
+                <div class="form-group">
+                    <p>
+                        {{ form_update.ID_Formation.label }}<br>
+                        {{ form_update.ID_Formation(size=32) }}<br>
+                        {% for error in form_update.ID_Formation.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.FK_Candidat.label }}<br>
+                        {{ form_update.FK_Candidat(size=32) }}<br>
+                        {% for error in form_update.FK_Candidat.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Etablissement.label }}<br>
+                        {{ form_update.Etablissement(size=32) }}<br>
+                        {% for error in form_update.Etablissement.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Diplome.label }}<br>
+                        {{ form_update.Diplome(size=32) }}<br>
+                        {% for error in form_update.Diplome.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Domaine.label }}<br>
+                        {{ form_update.Domaine(size=32) }}<br>
+                        {% for error in form_update.Domaine.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Date_Debut.label }}<br>
+                        {{ form_update.Date_Debut(size=32) }}<br>
+                        {% for error in form_update.Date_Debut.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Date_Fin.label }}<br>
+                        {{ form_update.Date_Fin(size=32) }}<br>
+                        {% for error in form_update.Date_Fin.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Description.label }}<br>
+                        {{ form_update.Description(size=32) }}<br>
+                        {% for error in form_update.Description.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                {{ form_update.submit(class="btn btn-primary") }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

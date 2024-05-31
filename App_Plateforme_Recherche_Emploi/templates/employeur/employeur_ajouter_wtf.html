@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %} Ajouter un employeur (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                Ajouter un nouveau employeur (WTForms)
+            </p>
+            <form action="" method="POST" novalidate>
+                <!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <p>
+                        {{ form.ID_Employeur.label }}<br>
+                        {{ form.ID_Employeur(size=32) }}<br>
+                        {% for error in form.ID_Employeur.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form.Nom_Entreprise.label }}<br>
+                        {{ form.Nom_Entreprise(size=32) }}<br>
+                        {% for error in form.Nom_Entreprise.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form.Secteur.label }}<br>
+                        {{ form.Secteur(size=32) }}<br>
+                        {% for error in form.Secteur.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form.Email.label }}<br>
+                        {{ form.Email(size=32) }}<br>
+                        {% for error in form.Email.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form.Telephone.label }}<br>
+                        {{ form.Telephone(size=32) }}<br>
+                        {% for error in form.Telephone.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form.Adresse.label }}<br>
+                        {{ form.Adresse(size=32) }}<br>
+                        {% for error in form.Adresse.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form.Description.label }}<br>
+                        {{ form.Description(rows=5, cols=50) }}<br>
+                        {% for error in form.Description.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                {{ form.submit(class="btn btn-primary") }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

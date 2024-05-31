@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %} Afficher formation {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				formation
+			</p>
+            <table class="table table-bordered table-sm">
+            {% if data %}
+                <thead>
+                    <tr>
+                        <th class="align-middle">
+                            ID_Formation
+                        </th>
+                        <th class="align-middle">
+                            FK_Candidat
+                        </th>
+                        <th class="align-middle">
+							Etablissement
+                        </th>
+                        <th class="align-middle">
+							Diplome
+                        </th>
+						<th class="align-middle">
+							Domaine
+                        </th>
+						<th class="align-middle">
+							Date_Debut
+                        </th>
+						<th class="align-middle">
+							Date_Fin
+                        </th>
+						<th class="align-middle">
+							Description
+                        </th>
+                    </tr>
+                </thead>
+            {% endif %}
+
+            {% for row in data %}
+				<tbody>
+					<tr>
+						<td class="align-middle">
+							{{ row.ID_Formation }}
+						</td>
+						<td class="align-middle">
+							{{ row.FK_Candidat }}
+						</td>
+						<td class="align-middle">
+							{{ row.Etablissement }}
+						</td>
+						<td class="align-middle">
+							{{ row.Diplome }}
+						</td>
+						<td class="align-middle">
+							{{ row.Domaine }}
+						</td>
+						<td class="align-middle">
+							{{ row.Date_Debut }}
+						</td>
+						<td class="align-middle">
+							{{ row.Date_Fin }}
+						</td>
+						<td class="align-middle">
+							{{ row.Description }}
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-primary" href="{{ url_for('formation_ajouter_wtf') }}" role="button">Ajouter</a>
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-warning" href="{{ url_for('formation_update_wtf', id_formation_btn_edit_html=row.ID_Formation) }}" role="button">Edit</a>
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-danger" href="{{ url_for('formation_delete_wtf', id_formation_btn_delete_html=row.ID_Formation) }}" role="button">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+            {% else %}
+				<tbody>
+					<tr>
+						<td>
+							Aucun Formation.
+						</td>
+						<td>
+							<a class="btn btn-primary" href="{{ url_for('formations_ajouter_wtf') }}" role="button">Ajouter</a>
+						</td>
+					</tr>
+				</tbody>
+            {% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

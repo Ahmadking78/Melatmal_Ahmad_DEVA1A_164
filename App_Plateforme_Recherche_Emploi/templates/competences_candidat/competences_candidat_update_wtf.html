@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %} Editer un competences_candidat (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Editer un competences_candidat
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form_update.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form_update.FK_Candidat.label }}<br>
+						{{ form_update.FK_Candidat(size=32) }}<br>
+						{% for error in form_update.FK_Candidat.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form_update.FK_Competence.label }}<br>
+						{{ form_update.FK_Competence(size=32) }}<br>
+						{% for error in form_update.FK_Competence.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form_update.Niveau.label }}<br>
+						{{ form_update.Niveau(size=32) }}<br>
+						{% for error in form_update.Niveau.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+				{{ form_update.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

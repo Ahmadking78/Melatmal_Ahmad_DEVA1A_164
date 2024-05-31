@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %} Afficher candidature {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				candidature
+			</p>
+            <table class="table table-bordered table-sm">
+            {% if data %}
+                <thead>
+                    <tr>
+                        <th class="align-middle">
+                            ID_Candidature
+                        </th>
+                        <th class="align-middle">
+                            FK_Candidat
+                        </th>
+                        <th class="align-middle">
+							FK_Offre
+                        </th>
+                        <th class="align-middle">
+							Date_Candidature
+                        </th>
+						<th class="align-middle">
+							Lettre_Motivation
+                        </th>
+						<th class="align-middle">
+							Statut
+                        </th>
+                    </tr>
+                </thead>
+            {% endif %}
+
+            {% for row in data %}
+				<tbody>
+					<tr>
+						<td class="align-middle">
+							{{ row.ID_Candidature }}
+						</td>
+						<td class="align-middle">
+							{{ row.FK_Candidat }}
+						</td>
+						<td class="align-middle">
+							{{ row.FK_Offre }}
+						</td>
+						<td class="align-middle">
+							{{ row.Date_Candidature }}
+						</td>
+						<td class="align-middle">
+							{{ row.Lettre_Motivation }}
+						</td>
+						<td class="align-middle">
+							{{ row.Statut }}
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-primary" href="{{ url_for('candidature_ajouter_wtf') }}" role="button">Ajouter</a>
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-warning" href="{{ url_for('candidature_update_wtf', id_candidature_btn_edit_html=row.ID_Candidature) }}" role="button">Edit</a>
+						</td>
+						<td class="text-center" class="align-middle">
+							<a class="btn btn-danger" href="{{ url_for('candidature_delete_wtf', id_candidature_btn_delete_html=row.ID_Candidature) }}" role="button">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+            {% else %}
+				<tbody>
+					<tr>
+						<td>
+							Aucun Candidat.
+						</td>
+						<td>
+							<a class="btn btn-primary" href="{{ url_for('candidatures_ajouter_wtf') }}" role="button">Ajouter</a>
+						</td>
+					</tr>
+				</tbody>
+            {% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

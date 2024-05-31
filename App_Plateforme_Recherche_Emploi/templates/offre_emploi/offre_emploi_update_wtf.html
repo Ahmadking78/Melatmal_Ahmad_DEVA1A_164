@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %} Editer un offre_emploi (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                Editer un offre_emploi
+            </p>
+            <form action="" method="POST" novalidate>
+                <!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+                {{ form_update.hidden_tag() }}
+                <div class="form-group">
+                    <p>
+                        {{ form_update.ID_Offre.label }}<br>
+                        {{ form_update.ID_Offre(size=32) }}<br>
+                        {% for error in form_update.ID_Offre.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.FK_Employeur.label }}<br>
+                        {{ form_update.FK_Employeur(size=32) }}<br>
+                        {% for error in form_update.FK_Employeur.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Titre.label }}<br>
+                        {{ form_update.Titre(size=32) }}<br>
+                        {% for error in form_update.Titre.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Description.label }}<br>
+                        {{ form_update.Description(size=32) }}<br>
+                        {% for error in form_update.Description.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Date_Publication.label }}<br>
+                        {{ form_update.Date_Publication(size=32) }}<br>
+                        {% for error in form_update.Date_Publication.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Date_Expiration.label }}<br>
+                        {{ form_update.Date_Expiration(size=32) }}<br>
+                        {% for error in form_update.Date_Expiration.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Type_Contrat.label }}<br>
+                        {{ form_update.Type_Contrat(size=32) }}<br>
+                        {% for error in form_update.Type_Contrat.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Localisation.label }}<br>
+                        {{ form_update.Localisation(size=32) }}<br>
+                        {% for error in form_update.Localisation.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>
+                        {{ form_update.Salaire.label }}<br>
+                        {{ form_update.Salaire(size=32) }}<br>
+                        {% for error in form_update.Salaire.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+                {{ form_update.submit(class="btn btn-primary") }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

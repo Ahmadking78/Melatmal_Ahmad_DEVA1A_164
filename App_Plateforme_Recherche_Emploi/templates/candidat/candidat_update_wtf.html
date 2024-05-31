@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %} Editer un candidat (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>Editer un candidat</p>
+            <form action="" method="POST" novalidate>
+                <!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+                {{ form_update.hidden_tag() }}
+                <div class="form-group">
+                    <p>
+                        {{ form_update.id_candidat.label }}<br>
+                        {{ form_update.id_candidat(size=32) }}<br>
+                        {% for error in form_update.id_candidat.errors %}
+                            <span style="color: red;">{{ error }}</span><br>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form_update.nom_candidat_update_wtf.label }}<br>
+                        {{ form_update.nom_candidat_update_wtf(size=32) }}<br>
+                        {% for error in form_update.nom_candidat_update_wtf.errors %}
+                            <span style="color: red;">{{ error }}</span><br>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form_update.prenom_candidat_update_wtf.label }}<br>
+                        {{ form_update.prenom_candidat_update_wtf(size=32) }}<br>
+                        {% for error in form_update.prenom_candidat_update_wtf.errors %}
+                            <span style="color: red;">{{ error }}</span><br>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form_update.email_candidat_update_wtf.label }}<br>
+                        {{ form_update.email_candidat_update_wtf(size=32) }}<br>
+                        {% for error in form_update.email_candidat_update_wtf.errors %}
+                            <span style="color: red;">{{ error }}</span><br>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form_update.mot_de_passe_candidat_update_wtf.label }}<br>
+                        {{ form_update.mot_de_passe_candidat_update_wtf(size=32) }}<br>
+                        {% for error in form_update.mot_de_passe_candidat_update_wtf.errors %}
+                            <span style="color: red;">{{ error }}</span><br>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form_update.telephone_candidat_update_wtf.label }}<br>
+                        {{ form_update.telephone_candidat_update_wtf(size=32) }}<br>
+                        {% for error in form_update.telephone_candidat_update_wtf.errors %}
+                            <span style="color: red;">{{ error }}</span><br>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form_update.date_de_naissance_candidat_update_wtf.label }}<br>
+                        {{ form_update.date_de_naissance_candidat_update_wtf(size=32) }}<br>
+                        {% for error in form_update.date_de_naissance_candidat_update_wtf.errors %}
+                            <span style="color: red;">{{ error }}</span><br>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form_update.adresse_candidat_update_wtf.label }}<br>
+                        {{ form_update.adresse_candidat_update_wtf(size=32) }}<br>
+                        {% for error in form_update.adresse_candidat_update_wtf.errors %}
+                            <span style="color: red;">{{ error }}</span><br>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form_update.titre_profil_candidat_update_wtf.label }}<br>
+                        {{ form_update.titre_profil_candidat_update_wtf(size=32) }}<br>
+                        {% for error in form_update.titre_profil_candidat_update_wtf.errors %}
+                            <span style="color: red;">{{ error }}</span><br>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        {{ form_update.resume_candidat_update_wtf.label }}<br>
+                        {{ form_update.resume_candidat_update_wtf(rows=5, cols=50) }}<br>
+                        {% for error in form_update.resume_candidat_update_wtf.errors %}
+                            <span style="color: red;">{{ error }}</span><br>
+                        {% endfor %}
+                    </p>
+                </div>
+                {{ form_update.submit(class="btn btn-primary") }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %} Ajouter un offre_emploi (WTF) {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Ajouter un nouveau offre_emploi (WTForms)
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form.ID_Offre.label }}<br>
+						{{ form.ID_Offre(size=32) }}<br>
+						{% for error in form.ID_Offre.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.FK_Employeur.label }}<br>
+						{{ form.FK_Employeur(size=32) }}<br>
+						{% for error in form.FK_Employeur.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.Titre.label }}<br>
+						{{ form.Titre(size=32) }}<br>
+						{% for error in form.Titre.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.Description.label }}<br>
+						{{ form.Description(size=32) }}<br>
+						{% for error in form.Description.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.Date_Publication.label }}<br>
+						{{ form.Date_Publication(size=32) }}<br>
+						{% for error in form.Date_Publication.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.Date_Expiration.label }}<br>
+						{{ form.Date_Expiration(size=32) }}<br>
+						{% for error in form.Date_Expiration.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.Type_Contrat.label }}<br>
+						{{ form.Type_Contrat(size=32) }}<br>
+						{% for error in form.Type_Contrat.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.Localisation.label }}<br>
+						{{ form.Localisation(size=32) }}<br>
+						{% for error in form.Localisation.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form.Salaire.label }}<br>
+						{{ form.Salaire(size=32) }}<br>
+						{% for error in form.Salaire.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+				</div>
+				{{ form.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -77,6 +77,7 @@ def candidature_afficher(order_by, id_candidature_sel):
     return render_template("candidature/candidature_afficher.html", data=data_candidature)
 
 
+
 """
     Auteur : OM 2021.03.22
     Définition d'une "route" /candidature_ajouter

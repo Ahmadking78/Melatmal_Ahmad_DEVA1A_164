@@ -1,7 +1,7 @@
 -- OM 2021.02.17
 -- FICHIER MYSQL POUR FAIRE FONCTIONNER LES EXEMPLES
 -- DE REQUETES MYSQL
--- Database: MACCAUD_OLIVIER_INFO1X_FILMS_164_2023
+-- Database: Melatmal_Ahmad_DEVA1A_Recherche_de_Emploi_164_2024.sql
 
 -- Destruction de la BD si elle existe.
 -- Pour être certain d'avoir la dernière version des données

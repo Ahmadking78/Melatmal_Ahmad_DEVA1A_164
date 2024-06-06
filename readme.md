@@ -46,7 +46,7 @@ Tous les fichiers nécessaires au bon fonctionnement du projet se trouvent dans 
 - Modèle Conceptuel de Données (MCD)
 - Modèle Logique de Données (MLD)
 - La base de données .SQL
-- Toutes les requêtes .SQL nécessaires
+- Toutes les requêtes .SQL de projet
 
 ## Fichier .env
 
